@@ -1,0 +1,24 @@
+
+<view class="canlendarBgView">
+  <view class="canlendarView">
+    <view class="canlendarTopView">
+      <!-- <view class="leftBgView" bindtap="handleCalendar" data-handle="prev"> -->
+        <text class="leftView" bindtap="handleCalendar" data-handle="prev">《</text>
+      <!-- </view> -->
+      <text class="centerView">{{cur_year || "--"}} 年 {{cur_month || "--"}} 月</text>
+      <!-- <view class="rightBgView" bindtap="handleCalendar" data-handle="next"> -->
+        <text class="rightView" bindtap="handleCalendar" data-handle="next">》</text>
+      <!-- </view> -->
+    </view>
+    <view class="weekBgView">
+      <view class="weekView" wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view>
+    </view>
+    <view class="dateBgView">
+      <view wx:if="{{hasEmptyGrid}}" class="dateEmptyView" wx:for="{{empytGrids}}" wx:key="{{index}}" data-idx="{{index}}">
+      </view>
+      <view class="dateView" wx:for="{{days}}" wx:key="{{index}}" data-idx="{{index}}" bindtap="dateSelectAction">
+        <view class="datesView {{index == todayIndex ? 'dateSelectView' : ''}}">{{item}}</view>
+      </view>
+    </view>
+  </view>
+</view>
